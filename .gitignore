@@ -1,0 +1,49 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+/.vs
+
+*.pdb
+/Pix/.vs/X
+/Pix/Pix/Debug
+/Pix/Pix/Release
+/Pix/Pix/x64
+/Pix/X/Debug
+/Pix/X/External/DirectXTK/Audio/Bin
+/Pix/X/External/DirectXTK/Bin/Desktop_2019
+/Pix/X/External/FW1FontWrapper/Debug
+/Pix/X/External/FW1FontWrapper/Release
+/Pix/X/External/FW1FontWrapper/x64
+/Pix/X/External/ImGui/x64
+/Pix/X/x64
+/Pix/x64/Debug
