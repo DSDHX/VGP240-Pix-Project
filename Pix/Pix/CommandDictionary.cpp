@@ -13,6 +13,8 @@
 #include "CmdShowViewport.h"
 #include "CmdSetViewport.h"
 #include "CmdSetClipping.h"
+#include "CmdMatrix.h"
+#include "CmdCamera.h"
 
 //#include "MathHelper.h"
 
@@ -52,6 +54,21 @@ CommandDictionary::CommandDictionary()
 	//Matrix4 final = rotX * trans;
 	//Matrix4 invFinal = MathHelper::Inverse(final);
 	//Matrix4 identity = final * invFinal;
+
+	//Matrix commands
+	RegisterCommand<CmdPushTranslation>();
+	RegisterCommand<CmdPushRotationX>();
+	RegisterCommand<CmdPushRotationY>();
+	RegisterCommand<CmdPushRotationZ>();
+	RegisterCommand<CmdPushScaling>();
+	RegisterCommand<CmdPopMatrix>();
+
+	// Camera commands
+	RegisterCommand<CmdSetCameraPosition>();
+	RegisterCommand<CmdSetCameraDirection>();
+	RegisterCommand<CmdSetCameraNear>();
+	RegisterCommand<CmdSetCameraFar>();
+	RegisterCommand<CmdSetCameraFov>();
 }
 
 TextEditor::LanguageDefinition CommandDictionary::GenerateLanguageDefinition()
