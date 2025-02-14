@@ -1,7 +1,10 @@
 #pragma once
 
+#include <memory>
 #include <string>
 #include <vector>
+
+struct Variable;
 
 class VariableCache
 {
@@ -16,17 +19,11 @@ public:
 	void AddFloat(const std::string& name, float value, float speed = 0.01f, float min = -FLT_MAX, float max = FLT_MAX);
 	float GetFloat(const std::string& param);
 
+	void AddBool(const std::string& name, bool value);
+	bool GetBool(const std::string& param);
+
 	void ShowEditor();
 
 private:
-	struct FloatVar
-	{
-		std::string name;
-		float value;
-		float speed;
-		float min;
-		float max;
-	};
-
-	std::vector<FloatVar> mFloatVars;
+	std::vector<std::unique_ptr<Variable>> mVariables;
 };
