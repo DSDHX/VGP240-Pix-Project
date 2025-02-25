@@ -22,6 +22,12 @@ float $rotX = 0, 0.1
 float $rotYA = 20, 0.1
 float $rotYB = -20, 0.1
 
+float $emissiveR = 0.0 0.1 0.0 1.0
+float $emissiveG = 0.0 0.1 0.0 1.0
+float $emissiveB = 0.0 0.1 0.0 1.0
+
+SetMaterialEmissive($emissiveR, $emissiveG, $emissiveB)
+
 SetCameraPosition($camX, $camY, $camZ)
 SetCameraDirection($camDirX, $camDirY, $camDirZ)
 

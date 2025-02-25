@@ -19,6 +19,8 @@
 #include "CmdSetCullMode.h"
 #include "CmdEnableDepth.h"
 
+#include "CmdMaterial.h"
+
 //#include "MathHelper.h"
 
 CommandDictionary* CommandDictionary::Get()
@@ -75,6 +77,13 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdSetCameraNear>();
 	RegisterCommand<CmdSetCameraFar>();
 	RegisterCommand<CmdSetCameraFov>();
+
+	// Material commands
+	RegisterCommand<CmdSetMaterialEmissive>();
+	RegisterCommand<CmdSetMaterialAmbient>();
+	RegisterCommand<CmdSetMaterialDiffuse>();
+	RegisterCommand<CmdSetMaterialSpecular>();
+	RegisterCommand<CmdSetMaterialShininess>();
 }
 
 TextEditor::LanguageDefinition CommandDictionary::GenerateLanguageDefinition()

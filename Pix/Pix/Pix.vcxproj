@@ -178,6 +178,7 @@
     <ClCompile Include="CmdDrawPixel.cpp" />
     <ClCompile Include="CmdEnableDepth.cpp" />
     <ClCompile Include="CmdEndDraw.cpp" />
+    <ClCompile Include="CmdMaterial.cpp" />
     <ClCompile Include="CmdMatrix.cpp" />
     <ClCompile Include="CmdSetClipping.cpp" />
     <ClCompile Include="CmdSetColor.cpp" />
@@ -192,6 +193,9 @@
     <ClCompile Include="CommandDictionary.cpp" />
     <ClCompile Include="DepthBuffer.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="LightManager.cpp" />
+    <ClCompile Include="LightManager.h" />
+    <ClCompile Include="MaterialManager.cpp" />
     <ClCompile Include="MathHelper.cpp" />
     <ClCompile Include="MatrixStack.cpp" />
     <ClCompile Include="PixEditor.cpp" />
@@ -216,6 +220,7 @@
     <ClInclude Include="CmdDrawPixel.h" />
     <ClInclude Include="CmdEnableDepth.h" />
     <ClInclude Include="CmdEndDraw.h" />
+    <ClInclude Include="CmdMaterial.h" />
     <ClInclude Include="CmdMatrix.h" />
     <ClInclude Include="CmdSetClipping.h" />
     <ClInclude Include="CmdSetColor.h" />
@@ -231,6 +236,8 @@
     <ClInclude Include="CommandDictionary.h" />
     <ClInclude Include="DepthBuffer.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="MaterialManager.h" />
     <ClInclude Include="MathHelper.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="MatrixStack.h" />
