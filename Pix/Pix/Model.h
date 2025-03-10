@@ -5,12 +5,9 @@
 class Model
 {
 public:
-    void Load(const std::string& fileName);
-
+    void Load(const std::string& filename);
     const std::string& GetFileName() const;
-
     const Vertex& GetVertex(uint32_t index) const;
-
     uint32_t GetVertexCount() const;
 
 private:

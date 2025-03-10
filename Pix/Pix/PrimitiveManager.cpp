@@ -123,16 +123,43 @@ bool PrimitiveManager::EndDraw()
 				Matrix4 matProj = Camera::Get()->GetProjectionMatrix();
 				Matrix4 matScreen = GetScreenTransform();
 				Matrix4 matNDC = matView * matProj;
+                ShadeMode shadeMode = Rasterizer::Get()->GetShadeMode();
 
 				for (size_t t = 0; t < triangle.size(); t++)
 				{
                     triangle[t].pos = MathHelper::TransformCoord(triangle[t].pos, matWorld);
+                    triangle[t].posWorld = triangle[t].pos;
+				}
+
+				if (MathHelper::IsEqual(triangle[0].pos.z, 0.0f))
+				{
+                    Vector3 faceNormal = CreateFaceNormal(triangle);
+					for (size_t t = 0; t < triangle.size(); t++)
+					{
+                        triangle[t].norm = faceNormal;
+					}
+				}
+				else
+				{
+					for (size_t t = 0; t < triangle.size(); t++)
+					{
+                        triangle[t].norm = MathHelper::TransformNormal(triangle[t].norm, matWorld);
+					}
 				}
 
                 Vector3 faceNormal = CreateFaceNormal(triangle);
-				for (size_t t = 0; t < triangle.size(); t++)
+				if (shadeMode == ShadeMode::Flat)
 				{
-                    triangle[t].color *= LightManager::Get()->ComputerLightColor(triangle[t].pos, faceNormal);
+                    triangle[0].color *= LightManager::Get()->ComputerLightColor(triangle[0].pos, triangle[0].norm);
+                    triangle[1].color = triangle[0].color;
+                    triangle[2].color = triangle[0].color;
+				}
+                else if (shadeMode == ShadeMode::Gouraud)
+				{
+					for (size_t t = 0; t < triangle.size(); t++)
+					{
+						triangle[t].color *= LightManager::Get()->ComputerLightColor(triangle[t].pos, triangle[0].norm);
+					}
 				}
 
 				for (size_t t = 0; t < triangle.size(); t++)

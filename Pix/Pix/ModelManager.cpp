@@ -11,11 +11,11 @@ void ModelManager::Clear()
     mModels.clear();
 }
 
-const Model* ModelManager::GetModel(const std::string& fileName)
+const Model* ModelManager::GetModel(const std::string& filename)
 {
-    auto iter = std::find_if(mModels.begin(), mModels.end(), [fileName](auto& model)
+    auto iter = std::find_if(mModels.begin(), mModels.end(), [filename](auto& model)
         {
-            return model->GetFileName() == fileName;
+            return model->GetFileName() == filename;
         });
     if (iter != mModels.end())
     {
@@ -23,6 +23,6 @@ const Model* ModelManager::GetModel(const std::string& fileName)
     }
 
     auto& model = mModels.emplace_back(std::make_unique<Model>());
-    model->Load(fileName);
+    model->Load(filename);
     return model.get();
 }

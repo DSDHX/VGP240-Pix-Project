@@ -31,7 +31,7 @@ void LightManager::SetLightSpecular(const X::Color& color)
     mSpecular = color;
 }
 
-void  LightManager::AddDirectionalLight(const Vector3& direction)
+void LightManager::AddDirectionalLight(const Vector3& direction)
 {
     auto light = std::make_unique<DirectionalLight>();
     light->SetAmbient(mAmbient);
@@ -66,19 +66,17 @@ void LightManager::AddSpotLight(const Vector3& position, const Vector3& directio
     mLights.emplace_back(std::move(light));
 }
 
-X::Color LightManager::ComputeLightColor(const Vector3& position, const Vector3& normal) const
+X::Color LightManager::ComputerLightColor(const Vector3& position, const Vector3& normal) const
 {
     if (mLights.empty())
     {
         return X::Colors::White;
     }
 
-    X::Color color = MaterialManager::Get()->GetMaterialEmissive();
-
+    X::Color color = MaterialManager::Get()->GetMaterialAmbient();
     for (auto& light : mLights)
     {
-        color += light->ComputeLightColor(position, normal);
+        color += light->ComputerLightColor(position, normal);
     }
-
     return color;
 }

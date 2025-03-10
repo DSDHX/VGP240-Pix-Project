@@ -8,8 +8,7 @@ public:
     static ModelManager* Get();
 
     void Clear();
-
-    const Model* GetModel(const std::string& fileName);
+    const Model* GetModel(const std::string& filename);
 
 private:
     std::vector<std::unique_ptr<Model>> mModels;

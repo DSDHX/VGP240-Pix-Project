@@ -20,6 +20,9 @@
 #include "CmdEnableDepth.h"
 
 #include "CmdMaterial.h"
+#include "CmdLights.h"
+#include "CmdModel.h"
+#include "CmdSetShadeMode.h"
 
 //#include "MathHelper.h"
 
@@ -45,12 +48,14 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdSetColor>();
 	RegisterCommand<CmdSetFillMode>();
 	RegisterCommand<CmdEnableDepth>();
+    RegisterCommand<CmdSetShadeMode>();
 
 	// Primitive commands
 	RegisterCommand<CmdBeginDraw>();
 	RegisterCommand<CmdEndDraw>();
 	RegisterCommand<CmdVertex>();
 	RegisterCommand<CmdSetCullMode>();
+    RegisterCommand<CmdModel>();
 
 	// Viewport commands
 	RegisterCommand<CmdShowViewport>();
@@ -84,6 +89,14 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdSetMaterialDiffuse>();
 	RegisterCommand<CmdSetMaterialSpecular>();
 	RegisterCommand<CmdSetMaterialShininess>();
+
+    // Light commands
+    RegisterCommand<CmdSetLightAmbient>();
+    RegisterCommand<CmdSetLightDiffuse>();
+    RegisterCommand<CmdSetLightSpecular>();
+    RegisterCommand<CmdAddDirectionalLight>();
+    RegisterCommand<CmdAddPointLight>();
+    RegisterCommand<CmdAddSpotLight>();
 }
 
 TextEditor::LanguageDefinition CommandDictionary::GenerateLanguageDefinition()
