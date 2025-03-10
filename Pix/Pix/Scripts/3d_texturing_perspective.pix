@@ -19,6 +19,7 @@ float $rotY = 0, 0.1
 float $rotZ = 0, 0.1
 
 bool $correctUV = false
+bool $useFilter = false
 
 SetCameraPosition($camX, $camY, $camZ)
 SetCameraDirection($camDirX, $camDirY, $camDirZ)
@@ -34,6 +35,7 @@ PushRotationY($rotY)
 PushRotationX($rotX)
 
 SetCorrectUV($correctUV)
+SetUseFilter($useFilter)
 
 BeginDraw(triangle, true)
 
@@ -45,3 +47,6 @@ Vertex(1, 1, 0, 1, 0, -1)
 Vertex(1, -1, 0, 1, 1, -1)
 
 EndDraw()
+
+
+

@@ -23,6 +23,10 @@
 #include "CmdLights.h"
 #include "CmdModel.h"
 #include "CmdSetShadeMode.h"
+#include "CmdSetTexture.h"
+#include "CmdSetCorrectUV.h"
+#include "CmdUseFilter.h"
+#include "CmdSetAddressMode.h"
 
 //#include "MathHelper.h"
 
@@ -56,6 +60,10 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdVertex>();
 	RegisterCommand<CmdSetCullMode>();
     RegisterCommand<CmdModel>();
+    RegisterCommand<CmdSetTexture>();
+    RegisterCommand<CmdSetCorrectUV>();
+    RegisterCommand<CmdUseFilter>();
+    RegisterCommand<CmdSetAddressMode>();
 
 	// Viewport commands
 	RegisterCommand<CmdShowViewport>();
