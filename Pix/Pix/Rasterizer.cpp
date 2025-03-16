@@ -2,6 +2,7 @@
 #include "DepthBuffer.h"
 #include "LightManager.h"
 #include "TextureManager.h"
+#include "PostProcessing.h"
 
 void DrawLineLow(const Vertex& left, const Vertex& right)
 {
@@ -55,7 +56,10 @@ ShadeMode Rasterizer::GetShadeMode()
 
 void Rasterizer::DrawPoint(int x, int y)
 {
-	X::DrawPixel(x, y, mColor);
+	if (!PostProcessing::Get()->Draw(x, y, mColor))
+	{
+		X::DrawPixel(x, y, mColor);
+	}
 }
 
 void Rasterizer::DrawPoint(const Vertex& vertex)
